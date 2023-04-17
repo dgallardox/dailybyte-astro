@@ -1,16 +1,55 @@
 ---
 
 ---
+<style>
+  html {
+    font-family: Roboto;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+  }
+  ul li {
+    display: inline;
+    padding: 0px 1.25rem;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    padding-left: 1.25rem;
+  }
+  footer {
+    padding: 10px 0;
+    text-align: center;
+  }
+</style>
+
 <html lang="en">
   <head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
+
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Dailybyte Astro</title>
 	</head>
     <body>
-      <div><a href="/">Dailybyte</a></div>
+      <nav>
+        <h2><a href="/">Dailybyte</a></h2>
+        <ul>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
       <slot />
+      <footer>
+        <p>Created by Diego Gallardo :)</p>
+      </footer>
     </body>
 </html>

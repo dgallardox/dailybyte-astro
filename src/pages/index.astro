@@ -32,17 +32,43 @@ const json = await response.json()
 const data = json.data.posts.nodes
 console.log(data[0].featuredImage.node.sourceUrl)
 ---
+<style>
+  h2 {
+    text-align: center;
+    margin: 60px 0;
+  }
+  .doc {
+    font-family: Roboto;
+  }
+  #card {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    background-color: lightgrey;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: all .2s ease-in-out;
+  }
+  #card:hover {
+    transform: scale(1.013);
+  }
+</style>
 
   <Layout>
+    <div class="doc">
+      <h2>All Sharks</h2>
     {data.map((post) => {
       return (
-        <h2>{post.title}</h2>
+        <div id="card">
+        <h3 class="red">{post.title}</h3>
         <img
           src={post.featuredImage.node.sourceUrl}
-          width={500}
-          height={500}
+          width={250}
+          height={250}
         />
-        <p>{post.content}</p>
+        <div set:html={post.content} />
+        </div>
       )
     })}
+    </div>
   </Layout>
