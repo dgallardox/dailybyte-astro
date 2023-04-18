@@ -1,8 +1,7 @@
 ---
-import Layout from "../components/Layout.astro";
-import { Image, Picture } from '@astrojs/image/components';
+import Layout from '../components/Layout.astro';
 
-const response = await fetch("https://cms.dailybyte.org/graphql", {
+const response = await fetch(import.meta.env.GRAPHQL_ENDPOINT, {
   method: 'POST',
   headers: {'Content-Type':'application/json'},
   body: JSON.stringify({
@@ -11,6 +10,7 @@ const response = await fetch("https://cms.dailybyte.org/graphql", {
     posts {
       nodes {
         id
+        uri
         slug
         title
         date
@@ -30,9 +30,12 @@ const response = await fetch("https://cms.dailybyte.org/graphql", {
 
 const json = await response.json()
 const data = json.data.posts.nodes
-console.log(data[0].featuredImage.node.sourceUrl)
 ---
 <style>
+  a {
+    color: black;
+    text-decoration: none;
+  }
   h2 {
     text-align: center;
     margin: 60px 0;
@@ -40,35 +43,67 @@ console.log(data[0].featuredImage.node.sourceUrl)
   .doc {
     font-family: Roboto;
   }
-  #card {
+  img {
+    width: 100%;
+  }
+  #cardContainer {
+    display: flex;
     width: 80%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  #card {
     margin: 0 auto;
     margin-bottom: 25px;
     background-color: lightgrey;
     border-radius: 20px;
     padding: 10px 20px;
     transition: all .2s ease-in-out;
+    cursor: pointer;
   }
   #card:hover {
     transform: scale(1.013);
   }
+
+  @media screen and (min-width: 768px) {
+  #card {
+  width: 40%;
+  }
+
+}
+  @media screen and (min-width: 992px) {
+  #card {
+  width: 25%;
+  }
+  #cardContainer {
+    width: 90%
+  }
+
+  @media screen and (min-width: 1200px) {
+  #card {
+  width: 20%;
+  }
+}
 </style>
 
   <Layout>
     <div class="doc">
       <h2>All Sharks</h2>
+      <div id="cardContainer">
     {data.map((post) => {
       return (
         <div id="card">
+        <a href={post.uri}>
         <h3 class="red">{post.title}</h3>
         <img
           src={post.featuredImage.node.sourceUrl}
-          width={250}
-          height={250}
         />
         <div set:html={post.content} />
+        </a>
         </div>
       )
     })}
+    </div>
     </div>
   </Layout>
