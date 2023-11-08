@@ -1,0 +1,61 @@
+---
+const siteTitle = "Daily Byte"
+
+const navlinksObj = {
+  portfolio: "/portfolio",
+  contact: "/contact"
+}
+const navLinks = Object.entries(navlinksObj)
+
+const currentPath = Astro.url.pathname;
+function isActive(path) {
+  return currentPath === path;
+}
+---
+
+<nav>
+  <h2><a href="/">{siteTitle}</a></h2>
+  <ul>
+    {navLinks.map(([navItem, navLink]) => (
+      <li key={navLink}>
+        <a href={navLink} className={isActive(navLink.path) ? 'active' : ''}>
+          {navItem}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  h2 {
+    padding: 0 20px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #bbc4ac;
+    padding: 10px 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline;
+    padding: 0 20px;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  a:hover {
+    background-color: #997864;
+  }
+  .active {
+    color: red; /* You can customize the active link style */
+  }
+</style>

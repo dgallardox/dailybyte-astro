@@ -1,0 +1,47 @@
+<footer>
+  <div id="left">
+    <span>Build by Diego Gallardo and Astro.js</span>
+  </div>
+  <div id="center">
+    <div id="title">Daily Byte</div>
+  </div>
+  <div id="right"></div>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160px;
+    background-color: #bbc4ac;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    padding: 0 20px; /* Add padding to create space between elements */
+  }
+
+  #title {
+    font-size: 60px;
+    font-weight: 800;
+  }
+
+  /* Style the left content */
+  #left {
+    flex-grow: 1; /* Expand to take available space */
+  }
+
+  /* Style the center content */
+  #center {
+    text-align: center; /* Center align the title */
+  }
+
+  /* Style the right content */
+  #right {
+    flex-grow: 1; /* Expand to take available space */
+  }
+
+  span {
+    font-size: 18px;
+  }
+</style>

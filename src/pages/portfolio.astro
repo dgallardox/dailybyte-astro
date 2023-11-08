@@ -1,0 +1,143 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+
+const res = await fetch("https://cms.dailybyte.org/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+      query PORTFOLIO_ITEMS {
+        portfolioItems {
+          nodes {
+            portfolioItemFields {
+              dateComplete
+              description
+              githubUrl
+              title
+              url
+              image {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  }),
+});
+
+const { data } = await res.json();
+const portfolio = data.portfolioItems.nodes;
+---
+
+<RootLayout title="Portfolio">
+  <div class="container">
+    {portfolio.map((item) => {
+      const {
+        description,
+        dateComplete,
+        title,
+        url,
+        githubUrl,
+      } = item.portfolioItemFields || "";
+
+      return (
+        <div class="card" key={title}>
+          <div class="image-container">
+            <img
+              alt="Featured Image"
+              src={item.portfolioItemFields.image.node.sourceUrl}
+            />
+          </div>
+          <a href={url}>
+            <h3>{title}</h3>
+          </a>
+          <a href={githubUrl}>
+            <img
+              class="github-logo"
+              src="../../assets/github-mark-white.svg"
+              alt="GitHub Logo"
+            />
+          </a>
+          <div set:html={description} class="description" />
+          {dateComplete ? <p>Completed: {dateComplete}</p> : null}
+          <button>Read More &rarr;</button>
+        </div>
+      );
+    })}
+  </div>
+</RootLayout>
+
+<style>
+  img {
+    max-width: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.025);
+  }
+
+  .image-container {
+    height: 280px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin: 20px 20px 10px;
+  }
+
+  .github-logo {
+    width: 30px;
+    background-color: black;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 0 20px;
+    padding: 6px;
+  }
+
+  .description {
+    padding: 0 20px 20px;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 20px 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }
+</style>

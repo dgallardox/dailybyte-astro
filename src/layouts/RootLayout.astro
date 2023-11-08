@@ -1,0 +1,42 @@
+---
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro";
+import PageTitle from "../components/PageTitle.astro"
+const { title } = Astro.props || null
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Daily Byte</title>
+	</head>
+	<body>
+    <Navbar />
+    {title ? <PageTitle>{title}</PageTitle> : null }
+    <slot />
+    <Footer />
+	</body>
+</html>
+
+<style is:global>
+  html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background-color: #f9f9f7;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
