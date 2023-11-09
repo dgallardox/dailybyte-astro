@@ -45,29 +45,31 @@ const portfolio = data.portfolioItems.nodes;
         githubUrl,
       } = item.portfolioItemFields || "";
 
+          //       <a href={githubUrl}>
+          //   <img
+          //     class="github-logo"
+          //     src="../../public/assets/github-mark-white.svg"
+          //     alt="GitHub Logo"
+          //   />
+          // </a> 
+
+          // {dateComplete ? <p>Completed: {dateComplete}</p> : null}
+
+          // <button>Read More &rarr;</button>
+
       return (
         <div class="card">
+          <a href={url} target="_blank">
           <div class="image-container">
             <img
               alt="Featured Image"
               src={item.portfolioItemFields.image.node.sourceUrl}
             />
           </div>
-          <a href={url}>
             <h3>{title}</h3>
-          </a>
-
-          <a href={githubUrl}>
-            <img
-              class="github-logo"
-              src="../../public/assets/github-mark-white.svg"
-              alt="GitHub Logo"
-            />
-          </a> 
 
           <div set:html={description} class="description" />
-          {dateComplete ? <p>Completed: {dateComplete}</p> : null}
-          <button>Read More &rarr;</button>
+          </a>
         </div>
       );
     })}
