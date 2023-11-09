@@ -1,15 +1,16 @@
 {
-  "name": "",
+  "name": "dailybyte-astron",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "serve dist -p 8080",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.4.4"
+    "astro": "^3.4.4",
+    "serve": "^14.2.1"
   }
 }

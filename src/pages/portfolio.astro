@@ -46,7 +46,7 @@ const portfolio = data.portfolioItems.nodes;
       } = item.portfolioItemFields || "";
 
       return (
-        <div class="card" key={title}>
+        <div class="card">
           <div class="image-container">
             <img
               alt="Featured Image"
@@ -56,13 +56,15 @@ const portfolio = data.portfolioItems.nodes;
           <a href={url}>
             <h3>{title}</h3>
           </a>
+
           <a href={githubUrl}>
             <img
               class="github-logo"
-              src="../../assets/github-mark-white.svg"
+              src="../../public/assets/github-mark-white.svg"
               alt="GitHub Logo"
             />
-          </a>
+          </a> 
+
           <div set:html={description} class="description" />
           {dateComplete ? <p>Completed: {dateComplete}</p> : null}
           <button>Read More &rarr;</button>
