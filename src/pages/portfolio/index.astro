@@ -32,6 +32,32 @@ const res = await fetch("https://cms.dailybyte.org/graphql", {
 
 const { data } = await res.json();
 const portfolio = data.portfolioItems.nodes;
+
+// <article class="card">
+        // <a href={url} target="_blank">
+        //   <div class="image-container">
+        //     <img
+        //       alt={title}
+        //       src={item.portfolioItemFields.image.node.sourceUrl}
+        //       loading="lazy"
+        //     />
+        //   </div>
+
+        //   <div class="content">
+        //     <h3>{title}</h3>
+        //     {githubUrl && (
+        //         <a href={githubUrl} class="github-link" target="_blank" aria-label="GitHub repository link">
+        //           <img
+        //             class="github-logo"
+        //             src="/assets/github-mark-white.svg"
+        //             alt="GitHub Logo"
+        //           />
+        //         </a>
+        //       )}
+        //   <div set:html={description} class="description" />
+        //   </div>
+        //   </a>
+        // </article>
 ---
 
 <RootLayout title="Portfolio">
@@ -46,30 +72,14 @@ const portfolio = data.portfolioItems.nodes;
       } = item.portfolioItemFields || "";
 
       return (
-        <article class="card">
-          <a href={url} target="_blank">
-          <div class="image-container">
-            <img
-              alt={title}
-              src={item.portfolioItemFields.image.node.sourceUrl}
-              loading="lazy"
-            />
+        <article>
+          <div>
+            <img src={item.portfolioItemFields.image.node.sourceUrl}/>
           </div>
-
-          <div class="content">
-            <h3>{title}</h3>
-            {githubUrl && (
-                <a href={githubUrl} class="github-link" target="_blank" aria-label="GitHub repository link">
-                  <img
-                    class="github-logo"
-                    src="/assets/github-mark-white.svg"
-                    alt="GitHub Logo"
-                  />
-                </a>
-              )}
-          <div set:html={description} class="description" />
+          <div>
+          <div class="blog-title">{title}</div>
+          <div set:html={description} class="description"/>
           </div>
-          </a>
         </article>
       );
     })}
@@ -77,8 +87,13 @@ const portfolio = data.portfolioItems.nodes;
 </RootLayout>
 
 <style>
+  article {
+    margin-bottom: 100px;
+    border-bottom: 1px solid lightgray;
+  }
   img {
     max-width: 100%;
+    margin-bottom: 30px;
   }
 
   .container {
@@ -87,6 +102,13 @@ const portfolio = data.portfolioItems.nodes;
     justify-content: space-between;
     width: 90%;
     margin: 40px auto;
+  }
+  .blog-title {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .description {
+    margin-bottom: 30px;
   }
 
   .card {
