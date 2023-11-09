@@ -1,0 +1,64 @@
+---
+import RootLayout from "../../layouts/RootLayout.astro"
+
+const res = await fetch("https://cms.dailybyte.org/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+      query POSTS {
+        posts {
+          nodes {
+              title
+              date
+              content
+              excerpt
+              slug
+          }
+        }
+      }
+    `,
+  }),
+});
+
+const { data } = await res.json();
+const posts = data.posts.nodes;
+console.log(posts)
+---
+
+<RootLayout title="Recent Posts">
+  <section>
+  {posts.map((item) => (
+    <article>
+    <div class="blog-title">{item.title}</div>
+    <p>{item.date}</p>
+    <div set:html={item.excerpt} />
+    <a href={`/posts/${item.slug}`}><button>Read Post &rarr;</button></a>
+    </article>
+  ))}
+  </section>
+
+</RootLayout>
+
+<style>
+  section {
+    width: 80%;
+    margin: 0 auto;
+  }
+  article {
+    margin-bottom: 80px;
+  }
+  .blog-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    color: lightseagreen;
+  }
+</style>

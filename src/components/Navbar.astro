@@ -3,6 +3,7 @@ const siteTitle = "Daily Byte"
 
 const navlinksObj = {
   portfolio: "/portfolio",
+  posts: "/posts",
   contact: "/contact"
 }
 const navLinks = Object.entries(navlinksObj)
@@ -13,13 +14,16 @@ function isActive(path) {
 }
 ---
 
-<nav>
-  <h2><a href="/">{siteTitle}</a></h2>
-  <ul>
+<nav role="navigation">
+  <div class="logo">
+  <h1><a href="/" class="site-title">{siteTitle}</a></h1>
+  </div>
+
+  <ul class="nav-links">
     {navLinks.map(([navItem, navLink]) => (
-      <li key={navLink}>
-        <a href={navLink} className={isActive(navLink.path) ? 'active' : ''}>
-          {navItem}
+      <li class="nav-item">
+        <a href={navLink} class={`nav-link ${isActive(navLink) ? 'active' : ''}`}>
+          {navItem.charAt(0).toUpperCase() + navItem.slice(1)}
         </a>
       </li>
     ))}
@@ -27,35 +31,60 @@ function isActive(path) {
 </nav>
 
 <style>
-  h2 {
-    padding: 0 20px;
+  :root {
+    --bg-color: #bbc4ac;
+    --text-color: #333;
+    --hover-bg-color: #dde7d0;
+    --active-color: brown;
+  }
+
+  h1, ul {
+    margin: 0;
+    padding: 0;
   }
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #bbc4ac;
-    padding: 10px 0;
+    background-color: var(--bg-color);
+    padding: 20px;
   }
-  ul {
-    margin: 0;
-    padding: 0;
+  .logo {
+    flex: 1;
+  }
+  .nav-links {
+    display: flex;
     list-style: none;
   }
-  li {
-    display: inline;
-    padding: 0 20px;
+
+  .nav-item {
+    margin-left: 20px;
   }
-  a {
+  .nav-link {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
-  a:hover {
-    background-color: #997864;
+  .nav-link:hover {
+    background-color: var(--hover-bg-color);
   }
   .active {
-    color: red; /* You can customize the active link style */
+    color: var(--active-color);
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .nav-item {
+      margin-top: 10px;
+    }
   }
 </style>
