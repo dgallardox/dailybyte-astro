@@ -25,7 +25,6 @@ const res = await fetch("https://cms.dailybyte.org/graphql", {
 
 const { data } = await res.json();
 const posts = data.posts.nodes;
-console.log(posts)
 ---
 
 <RootLayout title="Recent Posts">

@@ -1,22 +1,500 @@
 ---
 ---
   <main>
-    <div class="hero-text">
+    <!-- <div class="hero-text">
     <h1>Hello, I'm Diego Gallardo</h1>
     <p>Welcome to my portfolio</p>
     <a href="/portfolio" class="cta-button">View Portfolio &rarr;</a>
-  </div>
+  </div> -->
+  <div class="grid-container" id="D">
+        <!-- <span id="x-one"> -->
+            <div class="bubble" id="d-one-one"></div>
+            <div class="bubble" id="d-one-two"></div>
+            <div class="bubble" id="d-one-three"></div>
+            <div class="bubble" id="d-one-four"></div>
+            <div class="bubble" id="d-one-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-two"> -->
+            <div class="bubble" id="d-two-one"></div>
+            <div class="bubble" id="d-two-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-three"> -->
+            <div class="bubble" id="d-three-two"></div>
+            <div class="bubble" id="d-three-three"></div>
+            <div class="bubble" id="d-three-four"></div>
+        <!-- </span> -->
+        
+    </div>
+    <div class="grid-container" id="I">
+        <!-- <span id="x-one"> -->
+            <div class="bubble" id="i-one-one"></div>
+            <div class="bubble" id="i-one-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-two"> -->
+            <div class="bubble" id="i-two-one"></div>
+            <div class="bubble" id="i-two-two"></div>
+            <div class="bubble" id="i-two-three"></div>
+            <div class="bubble" id="i-two-four"></div>
+            <div class="bubble" id="i-two-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-three"> -->
+            <div class="bubble" id="i-three-one"></div>
+            <div class="bubble" id="i-three-five"></div>
+        <!-- </span> -->
+    </div>
+    <div class="grid-container" id="E">
+        <!-- <span id="x-one"> -->
+            <div class="bubble" id="e-one-one"></div>
+            <div class="bubble" id="e-one-two"></div>
+            <div class="bubble" id="e-one-three"></div>
+            <div class="bubble" id="e-one-four"></div>
+            <div class="bubble" id="e-one-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-two"> -->
+            <div class="bubble" id="e-two-one"></div>
+            <div class="bubble" id="e-two-three"></div>
+            <div class="bubble" id="e-two-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-three"> -->
+            <div class="bubble" id="e-three-one"></div>
+            <div class="bubble" id="e-three-three"></div>
+            <div class="bubble" id="e-three-five"></div>
+        <!-- </span> -->
+    </div>
+
+    <div class="grid-container" id="G">
+        <!-- <span id="x-one"> -->
+            <div class="bubble" id="g-one-two"></div>
+            <div class="bubble" id="g-one-three"></div>
+            <div class="bubble" id="g-one-four"></div>
+        <!-- </span> -->
+        <!-- <span id="x-two"> -->
+            <div class="bubble" id="g-two-one"></div>
+            <div class="bubble" id="g-two-five"></div>
+        <!-- </span> -->
+        <!-- <span id="x-three"> -->
+            <div class="bubble" id="g-three-one"></div>
+            <div class="bubble" id="g-three-four"></div>
+            <div class="bubble" id="g-three-five"></div>
+        <!-- </span> -->
+    </div>
+    <div class="grid-container" id="O">
+        <!-- <span id="x-one"> -->
+            <div class="bubble" id="o-one-two"></div>
+            <div class="bubble" id="o-one-three"></div>
+            <div class="bubble" id="o-one-four"></div>
+        <!-- </span> -->
+        <!-- <span id="x-two"> -->
+            <div class="bubble" id="o-two-one"></div>
+            <div class="bubble" id="o-two-five"></div>
+        <!-- </span> -->
+            <div class="bubble" id="o-three-two"></div>
+            <div class="bubble" id="o-three-three"></div>
+            <div class="bubble" id="o-three-four"></div>
+        <!-- <span id="x-three"></span> -->
+    </div>
   </main>
 
   <style>
   main {
-    background-color: #bbc4ac;
-    padding: 200px 0;
-    text-align: center;
-    height: 70vh
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+    --colorOne: white;
+    --colorTwo: white;
+    --colorThree: white;
+    --colorFour: white;
+    --colorFive: white;
+    --colorSix: white;
   }
 
-  .hero-text {
+  .grid-container {
+    display: inline-grid;
+    margin: 0 25px;
+    width: 150px;
+    height: 250px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.bubble {
+    background-color: maroon;
+    border: 2px solid blue;
+    border-radius: 50px;
+    margin: 3px;
+}
+
+#d-one-one {
+    background-color: var(--colorOne);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#d-one-two {
+    background-color: var(--colorTwo);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#d-one-three {
+    background-color: var(--colorThree);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#d-one-four {
+    background-color: var(--colorFour);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#d-one-five {
+    background-color: var(--colorFive);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#d-two-one {
+    background-color: var(--colorSix);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#d-two-five {
+    background-color: var(--colorSix);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#d-three-two {
+    background-color: var(--colorThree);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#d-three-three {
+    background-color: var(--colorTwo);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#d-three-four {
+    background-color: var(--colorOne);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#i-one-one {
+    background-color: var(--colorThree);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#i-one-five {
+    background-color: var(--colorOne);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#i-two-one {
+    background-color: var(--colorOne);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#i-two-two {
+    background-color: var(--colorTwo);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#i-two-three {
+    background-color: var(--colorFour);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#i-two-four {
+    background-color: var(--colorFive);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#i-two-five {
+    background-color: var(--colorSix);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#i-three-one {
+    background-color: var(--colorSix);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#i-three-five {
+    background-color: var(--colorThree);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#e-one-one {
+    background-color: var(--colorTwo);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#e-one-two {
+    background-color: var(--colorOne);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#e-one-three {
+    background-color: var(--colorFour);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#e-one-four {
+    background-color: var(--colorThree);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#e-one-five {
+    background-color: var(--colorSix);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#e-two-one {
+    background-color: var(--colorFive);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#e-two-three {
+    background-color: var(--colorSix);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#e-two-five {
+    background-color: var(--colorTwo);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#e-three-one {
+    background-color: var(--colorThree);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#e-three-three {
+    background-color: var(--colorFour);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#e-three-five {
+    background-color: var(--colorOne);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#g-one-two {
+    background-color: var(--colorThree);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#g-one-three {
+    background-color: var(--colorFive);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#g-one-four {
+    background-color: var(--colorOne);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#g-two-one {
+    background-color: var(--colorTwo);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#g-two-five {
+    background-color: var(--colorSix);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#g-three-one {
+    background-color: var(--colorOne);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#g-three-four {
+    background-color: var(--colorTwo);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#g-three-five {
+    background-color: var(--colorThree);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#o-one-two {
+    background-color: var(--colorFour);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#o-one-three {
+    background-color: var(--colorTwo);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#o-one-four {
+    background-color: var(--colorOne);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#o-two-one {
+    background-color: var(--colorThree);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#o-two-five {
+    background-color: var(--colorThree);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#o-three-two {
+    background-color: var(--colorTwo);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#o-three-three {
+    background-color: var(--colorFive);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#o-three-four {
+    background-color: var(--colorSix);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+  /* .hero-text {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -61,5 +539,5 @@
       padding: 10px 25px;
       font-size: 20px;
     }
-  }
+  } */
 </style>
